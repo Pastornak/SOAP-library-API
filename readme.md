@@ -17,6 +17,7 @@ spring.datasource.dbname=<data_base_name>
 ```
 2.1. The API will up on built-in data base H2 will be injected with data;
 Queries for injected data can be found at `/src/main/resources/data.sql`;
+
 2.2. It is also possible to up API using SQL data base. To do this, just change the last config properties to:
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/${spring.datasource.dbname}?serverTimezone=UTC
