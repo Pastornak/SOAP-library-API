@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cmn="libraryService"
+           targetNamespace="libraryService" elementFormDefault="qualified">
+
+<!--  AUTHOR  -->
+    <xs:element name="getAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authors" type="cmn:Authors"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"></xs:element>
+                <xs:element name="options" type="cmn:DeleteParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchAuthorsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="query" type="xs:string"></xs:element>
+                <xs:element name="search" type="cmn:SearchParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchAuthorsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authors" type="cmn:Authors"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorByBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getAuthorByBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getAuthorsByGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"></xs:element>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorsByGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authors" type="cmn:Authors"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+<!--  GENRE  -->
+    <xs:element name="getGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genres" type="cmn:Genres"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"></xs:element>
+                <xs:element name="options" type="cmn:DeleteParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchGenresRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="query" type="xs:string"></xs:element>
+                <xs:element name="search" type="cmn:SearchParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="searchGenresResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genres" type="cmn:Genres"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenreByBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenreByBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresByAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"></xs:element>
+                <xs:element name="search" type="cmn:SearchParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresByAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genres" type="cmn:Genres"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+<!--  BOOK  -->
+    <xs:element name="getBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"></xs:element>
+                <xs:element name="genreId" type="xs:long"></xs:element>
+                <xs:element name="book" type="cmn:BookType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchBooksRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="query" type="xs:string"></xs:element>
+                <xs:element name="search" type="cmn:SearchParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"></xs:element>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"></xs:element>
+                <xs:element name="search" type="cmn:SearchParams"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorAndGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"></xs:element>
+                <xs:element name="genreId" type="xs:long"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorAndGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!--  TYPES  -->
+    <xs:complexType name="AuthorType">
+        <xs:sequence>
+            <xs:element name="authorId" type="xs:long"></xs:element>
+            <xs:element name="authorName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="first" type="xs:string"></xs:element>
+                        <xs:element name="second" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="nationality" type="xs:string"></xs:element>
+            <xs:element name="birth">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="date" type="xs:string"></xs:element>
+                        <xs:element name="country" type="xs:string"></xs:element>
+                        <xs:element name="city" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="authorDescription" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BookType">
+        <xs:sequence>
+            <xs:element name="bookId" type="xs:long"></xs:element>
+            <xs:element name="bookName" type="xs:string"></xs:element>
+            <xs:element name="bookLanguage" type="xs:string"></xs:element>
+            <xs:element name="bookDescription" type="xs:string"></xs:element>
+            <xs:element name="additional">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="pageCount" type="xs:integer"></xs:element>
+                        <xs:element name="size">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="height" type="xs:float"></xs:element>
+                                    <xs:element name="width" type="xs:float"></xs:element>
+                                    <xs:element name="length" type="xs:float"></xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="publicationYear" type="xs:integer"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GenreType">
+        <xs:sequence>
+            <xs:element name="genreId" type="xs:long"></xs:element>
+            <xs:element name="genreName" type="xs:string"></xs:element>
+            <xs:element name="genreDescription" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SearchParamsWithPagination">
+        <xs:sequence>
+            <xs:element name="orderType" default="asc">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="asc"></xs:enumeration>
+                        <xs:enumeration value="desc"></xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="page" default="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"></xs:minInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="pagination" type="xs:boolean" default="true"></xs:element>
+            <xs:element name="size" default="10">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"></xs:minInclusive>
+                        <xs:maxInclusive value="100"></xs:maxInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="SearchParams">
+        <xs:sequence>
+            <xs:element name="orderType" default="asc">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="asc"></xs:enumeration>
+                        <xs:enumeration value="desc"></xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="size" default="10">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"></xs:minInclusive>
+                        <xs:maxInclusive value="100"></xs:maxInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteParams">
+        <xs:sequence>
+            <xs:element name="forcibly" type="xs:boolean" default="false"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Authors">
+        <xs:sequence>
+            <xs:element name="author" type="cmn:AuthorType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Genres">
+        <xs:sequence>
+            <xs:element name="genre" type="cmn:GenreType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Books">
+        <xs:sequence>
+            <xs:element name="book" type="cmn:BookType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
